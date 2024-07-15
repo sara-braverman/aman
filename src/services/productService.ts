@@ -110,16 +110,21 @@ export const searchProducts = async (searchString: string) => {
                         fields: ['name'],
                         fuzziness: 'AUTO'
                     }
-                }
-            ],
-            must: searchWords.map(word => ({
-                match: {
-                    description: {
-                        query: word,
-                        operator: 'and'
+                },
+                {
+                    bool: {
+                        must: searchWords.map(word => ({
+                            match: {
+                                description: {
+                                    query: word,
+                                    operator: 'and',
+                                    fuzziness: 'AUTO'
+                                }
+                            }
+                        }))
                     }
                 }
-            }))
+            ],
         }
     };
 
@@ -130,6 +135,7 @@ export const searchProducts = async (searchString: string) => {
     };
 
     const result = await client.search(searchParams);
+
     return result.hits.hits;
 };
 
