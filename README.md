@@ -2,37 +2,21 @@
 
 This project is an API service built using Node.js, typescript and Elasticsearch. It provides a robust system for managing customers, categories, products, and shopping carts.
 
-## Prerequisites
-
-To run this project, you need to have Elasticsearch running locally on **port 9200**. You can start Elasticsearch using the following command:
-
-# Start Elasticsearch (ensure it is installed)
-```bash
-sudo systemctl enable elasticsearch
-sudo systemctl start elasticsearch
-sudo systemctl status elasticsearch
-curl -X GET "http://localhost:9200/"
-```
-
 ## Setup Instructions
 
 1. **Clone the Project**
 
-   git clone <repository-url>
+   git clone git@github.com:sara-braverman/aman.git
 
 2. **Install Dependencies**
 
    Navigate to the root of the cloned project and run:
 
-   npm install
-
-3. **Start the Server**
-
-   To start the server, run:
-
-   npm run start
+   docker-compose up --build
 
    The API will be accessible at `http://localhost:3000`.
+
+   Elastic service will be run at `http://localhost:9200`.
 
 ## Elasticsearch Indexes
 
