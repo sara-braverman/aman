@@ -27,6 +27,6 @@
     "@types/elasticsearch": "^5.0.43",
     "@types/express": "^4.17.21",
     "elasticsearch": "^16.7.3",
-    "express": "^4.19.2"
+    "express": "^4.21.2"
   }
 }
