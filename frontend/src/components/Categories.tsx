@@ -20,7 +20,7 @@ const Categories: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {categories.map((category) => (
+          {categories?.map((category) => (
             <tr key={category.categoryId}>
               <td>{category.categoryId}</td>
               <td>{category.name}</td>

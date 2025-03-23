@@ -15,7 +15,7 @@ const Users: React.FC = () => {
       </Link>
 
       <div className="row">
-        {users.map((user) => (
+        {users?.map((user) => (
           <div key={user.customerId} className="col-md-4 mb-3">
             <Card className="shadow-sm border-0 text-center">
               <Card.Body>

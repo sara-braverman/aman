@@ -30,7 +30,7 @@ const Carts: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {carts.map((cart) => {
+          {carts?.map((cart) => {
             // Get the list of products NOT already in the cart
             const availableProducts = products.filter(
               (p) => !cart.items.some((item) => item.productId === p.sku)
