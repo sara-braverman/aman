@@ -15,16 +15,29 @@ services:
       - 9300:9300
 
   nodejs:
-    build: .
+    build: ./backend
     container_name: nodejs-app
+    working_dir: /usr/src/app
     volumes:
-      - .:/usr/src/app
+      - ./backend:/usr/src/app
       - /usr/src/app/node_modules
+      - /usr/src/app/dist
     ports:
       - 3000:3000
     depends_on:
       - elasticsearch
 
-volumes:
-  esdata:
-    driver: local
+  react-app:
+    build: ./frontend
+    container_name: react-app
+    working_dir: /usr/src/app
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules  # Prevents overwriting node_modules
+    ports:
+      - 3500:3500
+    command: ["npm", "start"]
+    environment:
+      - WDS_SOCKET_PORT=3500  # Ensures live reload works in Docker
+    stdin_open: true
+    tty: true
